@@ -10,12 +10,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20, top: 60),
+        padding: EdgeInsets.only(top: 60),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
             Container(
               width: double.maxFinite,
               decoration: const BoxDecoration(color: ThemeColors.secondaryWhite),
@@ -34,15 +33,18 @@ class Home extends StatelessWidget {
               ),
              Expanded(
                flex: 8,
-               child: ListView(
-                  shrinkWrap: true,
-                  children: const [
-                    TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
-                    TaskCard(time: '10:00', name: 'Estudar para prova', description: 'Prova de ESOF', color: ThemeColors.optionColorPurple,),
-                    TaskCard(time: '10:00', name: 'Almoçar', color: ThemeColors.optionColorGreen,),
-                    TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
-                  ],
+               child: Padding(
+                 padding: const EdgeInsets.only(left: 20, right: 20,),
+                 child: ListView(
+                    shrinkWrap: true,
+                    children: const [
+                      TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
+                      TaskCard(time: '10:00', name: 'Estudar para prova', description: 'Prova de ESOF', color: ThemeColors.optionColorPurple,),
+                      TaskCard(time: '10:00', name: 'Almoçar', color: ThemeColors.optionColorGreen,),
+                      TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
+                    ],
             ),
+               ),
              )
           ],
         ),

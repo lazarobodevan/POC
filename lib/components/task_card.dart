@@ -26,7 +26,7 @@ class TaskCard extends StatelessWidget {
           color: color,
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () {Navigator.pushNamed(context, '/step');},
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(

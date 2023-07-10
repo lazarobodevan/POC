@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:poc/screens/home.dart';
+import 'package:poc/screens/details_step_by_step.dart';
+import 'package:poc/screens/nav_pages/home.dart';
 import 'package:poc/screens/login.dart';
+import 'package:poc/screens/nav_pages/navigation_page.dart';
 import 'package:poc/screens/register.dart';
 
 void main() {
@@ -24,7 +26,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const Login(),
         '/register': (context) => const Register(),
-        '/home': (context) => Home()
+        '/home': (context) => const Home(),
+        '/step':(context) => const DetailsStepByStep()
       },
     );
   }
