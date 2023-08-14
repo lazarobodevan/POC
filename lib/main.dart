@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poc/screens/add_task.dart';
 import 'package:poc/screens/details_step_by_step.dart';
 import 'package:poc/screens/nav_pages/home.dart';
 import 'package:poc/screens/login.dart';
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Login(),
         '/register': (context) => const Register(),
         '/home': (context) => const NavigationPage(),
-        '/step':(context) => const DetailsStepByStep()
+        '/step':(context) => const DetailsStepByStep(),
+        '/addTask':(context) => const AddTask()
       },
     );
   }

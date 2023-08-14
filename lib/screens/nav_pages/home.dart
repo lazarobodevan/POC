@@ -9,8 +9,15 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){Navigator.pushNamed(context, '/addTask');},
+        backgroundColor: ThemeColors.primary1,
+        shape: const CircleBorder(),
+
+        child: const Icon(Icons.add, color: ThemeColors.secondaryWhite,),
+      ),
       body: Padding(
-        padding: EdgeInsets.only(top: 60),
+        padding: const EdgeInsets.only(top: 60),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
