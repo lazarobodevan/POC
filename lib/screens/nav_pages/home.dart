@@ -16,45 +16,45 @@ class Home extends StatelessWidget {
 
         child: const Icon(Icons.add, color: ThemeColors.secondaryWhite,),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 60),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: double.maxFinite,
-              decoration: const BoxDecoration(color: ThemeColors.secondaryWhite),
-                height: 180,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    TitleH3(text: 'Olá, João!'),
-                    Text(
-                      'Essas são as tarefas de',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    TitleH3(text: 'Hoje, 22/06')
-                  ],
-                ),
+      appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: double.maxFinite,
+            decoration: const BoxDecoration(color: ThemeColors.secondaryWhite),
+              height: 180,
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TitleH3(text: 'Olá, João!'),
+                  Text(
+                    'Essas são as tarefas de',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  TitleH3(text: 'Hoje, 22/06')
+                ],
               ),
-             Expanded(
-               flex: 8,
-               child: Padding(
-                 padding: const EdgeInsets.only(left: 20, right: 20,),
-                 child: ListView(
-                    shrinkWrap: true,
-                    children: const [
-                      TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
-                      TaskCard(time: '10:00', name: 'Estudar para prova', description: 'Prova de ESOF', color: ThemeColors.optionColorPurple,),
-                      TaskCard(time: '10:00', name: 'Almoçar', color: ThemeColors.optionColorGreen,),
-                      TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
-                    ],
             ),
-               ),
-             )
-          ],
-        ),
+           Expanded(
+             flex: 8,
+             child: Padding(
+               padding: const EdgeInsets.only(left: 20, right: 20,),
+               child: ListView(
+                  shrinkWrap: true,
+                  children: const [
+                    TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
+                    TaskCard(time: '10:00', name: 'Estudar para prova', description: 'Prova de ESOF', color: ThemeColors.optionColorPurple,),
+                    TaskCard(time: '10:00', name: 'Almoçar', color: ThemeColors.optionColorGreen,),
+                    TaskCard(time: '10:00', name: 'Escovar os dentes', color: ThemeColors.optionColorOrange,),
+                  ],
+          ),
+             ),
+           )
+        ],
       ),
     );
   }

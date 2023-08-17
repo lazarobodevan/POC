@@ -286,7 +286,8 @@ class _AddTaskState extends State<AddTask> {
             const SizedBox(height: 5,),
             SizedBox(height: 50, child: ColorPicker(colors: colors)),
             const SizedBox(height: 40,),
-            Center(child: Button(text: 'Concluir', onTap: (){}))
+            Center(child: Button(text: 'Concluir', onTap: (){})),
+            const SizedBox(height: 40,)
           ],
         ),
       ),

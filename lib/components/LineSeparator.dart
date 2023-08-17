@@ -12,7 +12,7 @@ class LineSeparator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DottedLine(
+    return isDashed ? DottedLine(
       dashColor: color,
       lineThickness: 5,
       direction: axis,
@@ -20,6 +20,13 @@ class LineSeparator extends StatelessWidget {
       dashLength: 25,
       dashRadius: 20,
       dashGapLength: 15,
+    ): Container(
+      width: size,
+      height: 1,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(1)
+      ),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poc/screens/add_task.dart';
 import 'package:poc/screens/details_step_by_step.dart';
-import 'package:poc/screens/nav_pages/home.dart';
 import 'package:poc/screens/login.dart';
 import 'package:poc/screens/nav_pages/navigation_page.dart';
 import 'package:poc/screens/register.dart';
