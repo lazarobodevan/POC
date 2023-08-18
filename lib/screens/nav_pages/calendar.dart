@@ -18,30 +18,27 @@ class _CalendarState extends State<Calendar> {
   List<List<Task>> tasks = [
     [
       Task(
-        id: '1',
-        name: 'Escovar os dentes',
-        description: '',
-        date: DateTime.now().subtract(
-          Duration(hours: 3),
-        ),
-      ),
+          id: '1',
+          name: 'Escovar os dentes',
+          description: '',
+          date: DateTime(2023, 08, 16)),
       Task(
           id: '2',
           name: 'Estudar',
           description: '',
-          date: DateTime.now().subtract(Duration(hours: 3)))
+          date: DateTime(2023, 08, 16)),
     ],
     [
       Task(
           id: '3',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 17).subtract(Duration(hours: 3))),
+          date: DateTime(2023, 08, 17)),
     ],
     [
       Task(
           id: '4',
-          name: 'Escovar os dentes',
+          name: 'Escovar os dentesaaa',
           description: '',
           date: DateTime(2023, 08, 18)),
     ],
@@ -69,6 +66,7 @@ class _CalendarState extends State<Calendar> {
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         children: [
@@ -122,6 +120,7 @@ class _CalendarState extends State<Calendar> {
             child: SingleChildScrollView(
               child: Column(
                 children: tasks.map((list) {
+                  print(list[0].date);
                   return Column(
                     children: [
                       CalendarDayItem(day: list[0].date, tasks: list),

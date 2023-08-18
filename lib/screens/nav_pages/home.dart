@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
       ),
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
+        automaticallyImplyLeading: false,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,

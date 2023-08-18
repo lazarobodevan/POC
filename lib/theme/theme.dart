@@ -22,6 +22,7 @@ class ThemeColors{
   static const Color secondaryBlack = Color.fromRGBO(0, 0, 0, 1);
   static const Color secondary1 = Color.fromRGBO(205, 208, 217, 1);
   static const Color secondary2 = Color.fromRGBO(189, 195, 212, 1);
+  static const Color secondary3 = Color.fromRGBO(167, 175, 198, 1);
   static const Color secondary4 = Color.fromRGBO(126, 140, 178, 1);
   
   static const Color optionColorLilac = Color.fromRGBO(155, 93, 229, 1);
@@ -29,4 +30,6 @@ class ThemeColors{
   static const Color optionColorGreen = Color.fromRGBO(112, 166, 55, 1);
   static const Color optionColorPink = Color.fromRGBO(255, 89, 94, 1);
   static const Color optionColorPurple = Color.fromRGBO(114, 9, 183, 1);
+  
+  static const Color semanticGreen = Color.fromRGBO(25, 179, 119, 1);
 }
