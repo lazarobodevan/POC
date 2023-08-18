@@ -18,18 +18,25 @@ class _CalendarState extends State<Calendar> {
   List<List<Task>> tasks = [
     [
       Task(
-          id: '1',
-          name: 'Escovar os dentes',
+        id: '1',
+        name: 'Escovar os dentes',
+        description: '',
+        date: DateTime.now().subtract(
+          Duration(hours: 3),
+        ),
+      ),
+      Task(
+          id: '2',
+          name: 'Estudar',
           description: '',
-          date: DateTime.now().subtract(Duration(hours: 3))),
-      Task(id: '2', name: 'Estudar', description: '', date: DateTime.now().subtract(Duration(hours: 3)))
+          date: DateTime.now().subtract(Duration(hours: 3)))
     ],
     [
       Task(
           id: '3',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 17)),
+          date: DateTime(2023, 08, 17).subtract(Duration(hours: 3))),
     ],
     [
       Task(
@@ -119,7 +126,8 @@ class _CalendarState extends State<Calendar> {
                     children: [
                       CalendarDayItem(day: list[0].date, tasks: list),
                       const Padding(
-                        padding: EdgeInsets.only(top:8, bottom: 8, left: 40, right: 40),
+                        padding: EdgeInsets.only(
+                            top: 8, bottom: 8, left: 40, right: 40),
                         child: LineSeparator(
                             size: double.maxFinite,
                             color: ThemeColors.secondary2,

@@ -3,8 +3,10 @@ import 'package:intl/intl.dart';
 import 'package:poc/components/button.dart';
 import 'package:poc/components/checkbox.dart';
 import 'package:poc/components/color_picker.dart';
+import 'package:poc/components/date_picker.dart';
 import 'package:poc/components/label.dart';
 import 'package:poc/components/text_input.dart';
+import 'package:poc/components/time_picker.dart';
 import 'package:poc/components/title.dart';
 import 'package:poc/theme/theme.dart';
 
@@ -17,9 +19,7 @@ class AddTask extends StatefulWidget {
 
 class _AddTaskState extends State<AddTask> {
   var itemSelecionado;
-  var now = DateTime.now();
-  DateTime? selectedDate;
-  TimeOfDay? selectedTime;
+
   var repeatDays = {
     "dom": false,
     "seg": false,
@@ -36,39 +36,6 @@ class _AddTaskState extends State<AddTask> {
     ThemeColors.optionColorOrange,
     ThemeColors.optionColorPink
   ];
-
-  void _showDatePicker() {
-    showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime.now(),
-            lastDate: DateTime(now.year, now.month + 4, now.day))
-        .then((value) {
-      setState(() {
-        selectedDate = value!;
-      });
-    });
-  }
-
-  void _showTimePicker() {
-    showTimePicker(context: context, initialTime: TimeOfDay.now())
-        .then((value) {
-      setState(() {
-        selectedTime = value!;
-      });
-    });
-  }
-
-  String _getFormattedDate() {
-    if (selectedDate != null) {
-      return DateFormat('dd/MM/yy').format(selectedDate!);
-    }
-    return '';
-  }
-
-  String _getFormattedTime() {
-    return '${selectedTime?.hour}:${selectedTime?.minute}';
-  }
 
   void _handleCheckboxChange(String day) {
     repeatDays[day] = !repeatDays[day]!;
@@ -116,89 +83,19 @@ class _AddTaskState extends State<AddTask> {
             const SizedBox(
               height: 20,
             ),
-            Row(
+            const Row(
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Label(text: 'Data'),
-                      InkWell(
-                        onTap: _showDatePicker,
-                        child: Container(
-                          width: double.maxFinite,
-                          height: 60,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              border: Border.all(
-                                width: 1,
-                                color: ThemeColors.secondary4,
-                              )),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15, right: 15),
-                            child: (Row(
-                              children: [
-                                const Icon(Icons.calendar_month,
-                                    color: ThemeColors.secondary4),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                Text(selectedDate != null
-                                    ? _getFormattedDate()
-                                    : 'dd/mm/aa')
-                              ],
-                            )),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                const SizedBox(
+                DatePicker(),
+                SizedBox(
                   width: 10,
                 ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Label(text: 'Hora'),
-                      InkWell(
-                        onTap: _showTimePicker,
-                        child: Container(
-                          width: double.maxFinite,
-                          height: 60,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              border: Border.all(
-                                width: 1,
-                                color: ThemeColors.secondary4,
-                              )),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 15, right: 15),
-                            child: (Row(
-                              children: [
-                                const Icon(Icons.access_time,
-                                    color: ThemeColors.secondary4),
-                                const SizedBox(
-                                  width: 6,
-                                ),
-                                Text(selectedTime != null
-                                    ? _getFormattedTime()
-                                    : 'hh:mm')
-                              ],
-                            )),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                TimePicker()
               ],
             ),
             const SizedBox(
               height: 25,
             ),
-            TextInput(
+            const TextInput(
                 width: double.maxFinite, height: 60, placeholder: "Descrição"),
             const SizedBox(
               height: 25,
@@ -281,13 +178,21 @@ class _AddTaskState extends State<AddTask> {
                 )
               ],
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             const Label(text: "Cor da tarefa"),
-            const SizedBox(height: 5,),
+            const SizedBox(
+              height: 5,
+            ),
             SizedBox(height: 50, child: ColorPicker(colors: colors)),
-            const SizedBox(height: 40,),
-            Center(child: Button(text: 'Concluir', onTap: (){})),
-            const SizedBox(height: 40,)
+            const SizedBox(
+              height: 40,
+            ),
+            Center(child: Button(text: 'Concluir', onTap: () {})),
+            const SizedBox(
+              height: 40,
+            )
           ],
         ),
       ),

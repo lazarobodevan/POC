@@ -74,7 +74,7 @@ class Login extends StatelessWidget {
             Button(
               text: 'Entrar',
               onTap: () {
-                Navigator.pushReplacementNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/config');
               },
             ),
             Padding(

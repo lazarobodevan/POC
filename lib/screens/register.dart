@@ -15,49 +15,72 @@ class Register extends StatelessWidget {
         iconTheme: const IconThemeData(size: 40, color: ThemeColors.primary1),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 20),
+        padding:
+            const EdgeInsets.only(top: 20, left: 40, right: 40, bottom: 20),
         child: Form(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: TitleH3(text: 'Crie sua conta'),
-                ),
-                Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 18),
-                      child: TextInput(width: double.maxFinite, height: 57, placeholder: 'Nome completo'),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 18),
-                      child: TextInput(width: double.maxFinite, height: 57, placeholder: 'E-mail'),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 18),
-                      child: TextInput(width: double.maxFinite, height: 57, placeholder: 'Senha'),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 18),
-                      child: TextInput(width: double.maxFinite, height: 57, placeholder: 'Confirmar senha'),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 18),
-                      child: TextInput(width: double.maxFinite, height: 57, placeholder: 'Matricula'),
-                    ),
-                    const TextInput(width: double.maxFinite, height: 57, placeholder: 'Curso'),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40),
-                      child: Button(text: 'Concluir', onTap: (){}),
-                    )
-                  ],
-                )
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: TitleH3(text: 'Crie sua conta'),
+              ),
+              Column(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 18),
+                    child: TextInput(
+                        width: double.maxFinite,
+                        height: 57,
+                        placeholder: 'Nome completo'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 18),
+                    child: TextInput(
+                        width: double.maxFinite,
+                        height: 57,
+                        placeholder: 'E-mail'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 18),
+                    child: TextInput(
+                        width: double.maxFinite,
+                        height: 57,
+                        placeholder: 'Senha'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 18),
+                    child: TextInput(
+                        width: double.maxFinite,
+                        height: 57,
+                        placeholder: 'Confirmar senha'),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 18),
+                    child: TextInput(
+                        width: double.maxFinite,
+                        height: 57,
+                        placeholder: 'Matricula'),
+                  ),
+                  const TextInput(
+                      width: double.maxFinite,
+                      height: 57,
+                      placeholder: 'Curso'),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: Button(
+                        text: 'Concluir',
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, '/config');
+                        }),
+                  )
+                ],
+              )
+            ],
           ),
         ),
+      ),
     );
   }
 }
