@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'Task_Step.dart';
+
 class Task {
   final String id;
   final DateTime date;
   final String name;
   final String? description;
   final Color? color;
+  final List<TaskStep> steps;
 
   Task({
     required this.id,
@@ -13,5 +16,6 @@ class Task {
     required this.date,
     this.description,
     this.color,
+    required this.steps
   });
 }

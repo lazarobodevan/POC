@@ -6,6 +6,8 @@ import 'package:poc/screens/login.dart';
 import 'package:poc/screens/nav_pages/navigation_page.dart';
 import 'package:poc/screens/register.dart';
 
+import 'models/Task.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -28,9 +30,13 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Login(),
         '/register': (context) => const Register(),
         '/home': (context) => const NavigationPage(),
-        '/step':(context) => const DetailsStepByStep(),
         '/addTask':(context) => const AddTask(),
         '/config':(context) => const InitialConfiguration()
+      },
+      onGenerateRoute: (settings){
+        if(settings.name == "/step"){
+          return MaterialPageRoute(builder: (context) => DetailsStepByStep(task: settings.arguments as Task));
+        }
       },
     );
   }

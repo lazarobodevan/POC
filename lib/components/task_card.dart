@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:poc/theme/theme.dart';
 
+import '../models/Task.dart';
+
 class TaskCard extends StatelessWidget {
-  final String time;
-  final String name;
-  final Color color;
-  final String? description;
+
+  final Task task;
 
   const TaskCard(
       {super.key,
-      required this.time,
-      required this.name,
-      this.description,
-      required this.color});
+      required this.task});
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +20,10 @@ class TaskCard extends StatelessWidget {
         height: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: color,
+          color: task.color,
         ),
         child: InkWell(
-          onTap: () {Navigator.pushNamed(context, '/step');},
+          onTap: () {Navigator.pushNamed(context, '/step', arguments: task);},
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -35,7 +32,7 @@ class TaskCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${time}h",
+                      "${task.date.hour}h",
                       style: const TextStyle(color: Colors.white, fontSize: 18),
                     ),
                     Ink(
@@ -62,7 +59,7 @@ class TaskCard extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 5, left: 40),
                           child: Text(
-                            name,
+                            task.name,
                             style: const TextStyle(
                                 fontSize: 27,
                                 color: ThemeColors.secondaryWhite,
@@ -71,7 +68,7 @@ class TaskCard extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 5, left: 40),
-                          child: description != null ? Text(description!,style: TextStyle(color: ThemeColors.secondary1),) : Text(''),
+                          child: task.description != null ? Text(task.description!,style: TextStyle(color: ThemeColors.secondary1),) : Text(''),
                         )
                       ],
                     )

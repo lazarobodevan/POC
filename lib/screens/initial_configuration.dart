@@ -17,8 +17,8 @@ class InitialConfiguration extends StatefulWidget {
 
 class _InitialConfigurationState extends State<InitialConfiguration> {
   var tasks = [
-    Task(name: 'Escovar os dentes', date: DateTime.now(), id: '1'),
-    Task(name: 'Tomar banho', date: DateTime.now(), id: '2'),
+    Task(name: 'Escovar os dentes', date: DateTime.now(), id: '1', steps: []),
+    Task(name: 'Tomar banho', date: DateTime.now(), id: '2', steps: []),
   ];
 
   var currentIndex = 0;

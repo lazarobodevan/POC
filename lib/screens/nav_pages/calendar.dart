@@ -21,43 +21,45 @@ class _CalendarState extends State<Calendar> {
           id: '1',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 16)),
+          date: DateTime(2023, 08, 16),
+          steps: []),
       Task(
           id: '2',
           name: 'Estudar',
           description: '',
-          date: DateTime(2023, 08, 16)),
+          date: DateTime(2023, 08, 16),
+          steps: []),
     ],
     [
       Task(
           id: '3',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 17)),
+          date: DateTime(2023, 08, 17),steps: []),
     ],
     [
       Task(
           id: '4',
           name: 'Escovar os dentesaaa',
           description: '',
-          date: DateTime(2023, 08, 18)),
+          date: DateTime(2023, 08, 18),steps: []),
     ],
     [
       Task(
           id: '4',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 19)),
+          date: DateTime(2023, 08, 19),steps: []),
       Task(
           id: '4',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 19)),
+          date: DateTime(2023, 08, 19),steps: []),
       Task(
           id: '4',
           name: 'Escovar os dentes',
           description: '',
-          date: DateTime(2023, 08, 19)),
+          date: DateTime(2023, 08, 19),steps: []),
     ]
   ];
 
@@ -120,7 +122,6 @@ class _CalendarState extends State<Calendar> {
             child: SingleChildScrollView(
               child: Column(
                 children: tasks.map((list) {
-                  print(list[0].date);
                   return Column(
                     children: [
                       CalendarDayItem(day: list[0].date, tasks: list),
