@@ -75,6 +75,9 @@ flutter:
   assets:
      - assets/images/
      - assets/atividades/EscovarDentes/
+     - assets/atividades/Estudar/
+     - assets/atividades/LavarRoupa/
+     - assets/atividades/Aula/
 
 
 

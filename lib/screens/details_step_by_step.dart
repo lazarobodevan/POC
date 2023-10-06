@@ -14,7 +14,9 @@ class DetailsStepByStep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+      ),
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
@@ -151,19 +153,35 @@ class DetailsStepByStep extends StatelessWidget {
                                 ),
                         )
                         .toList()),
-                SizedBox(height: 40,),
+                SizedBox(
+                  height: 40,
+                ),
                 Center(
                   child: Column(
                     children: [
-                      Image.asset("assets/atividades/EscovarDentes/end.png",width: 140),
-                      Text("Muito bem!", style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),)
+                      Image.asset("assets/atividades/EscovarDentes/end.png",
+                          width: 140),
+                      Text(
+                        "Muito bem!",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      )
                     ],
                   ),
                 ),
-                SizedBox(height: 40,),
-
-                 Center(child: Button(text: "Concluir", onTap: (){Navigator.pop(context);}),),
-                SizedBox(height: 60,)
+                SizedBox(
+                  height: 40,
+                ),
+                Center(
+                  child: Button(
+                      text: "Concluir",
+                      onTap: () {
+                        Navigator.pop(context);
+                      }),
+                ),
+                SizedBox(
+                  height: 60,
+                )
               ]),
             ),
           ],

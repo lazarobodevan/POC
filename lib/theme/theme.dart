@@ -25,11 +25,11 @@ class ThemeColors{
   static const Color secondary3 = Color.fromRGBO(167, 175, 198, 1);
   static const Color secondary4 = Color.fromRGBO(126, 140, 178, 1);
   
-  static const Color optionColorLilac = Color.fromRGBO(155, 93, 229, 1);
-  static const Color optionColorOrange = Color.fromRGBO(244, 81, 30, 1);
-  static const Color optionColorGreen = Color.fromRGBO(112, 166, 55, 1);
-  static const Color optionColorPink = Color.fromRGBO(255, 89, 94, 1);
-  static const Color optionColorPurple = Color.fromRGBO(114, 9, 183, 1);
+  static const Color optionColor1 = Color.fromRGBO(93, 123, 229, 1);
+  static const Color optionColor2 = Color.fromRGBO(14, 53, 193, 1);
+  static const Color optionColor3 = Color.fromRGBO(112, 166, 55, 1);
+  static const Color optionColor4 = Color.fromRGBO(255, 89, 94, 1);
+  static const Color optionColor5 = Color.fromRGBO(222, 107, 0, 1);
   
   static const Color semanticGreen = Color.fromRGBO(25, 179, 119, 1);
 }

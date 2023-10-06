@@ -36,11 +36,10 @@ class _CalendarDayItemState extends State<CalendarDayItem> {
     String day = DateFormat('EEE', 'pt_BR').format(widget.day);
     return _capitalize(day);
   }
-
-  int _today = DateTime.now().subtract(Duration(hours: 3)).day;
+  
 
   bool _isToday(){
-    return _today == widget.day.day;
+    return DateUtils.isSameDay(widget.day, DateTime.now().subtract(Duration(hours: 3)));
   }
 
   @override

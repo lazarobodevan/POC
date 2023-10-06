@@ -7,7 +7,7 @@ class Task {
   final DateTime date;
   final String name;
   final String? description;
-  final Color? color;
+  final Color color;
   final List<TaskStep> steps;
 
   Task({
@@ -15,7 +15,7 @@ class Task {
     required this.name,
     required this.date,
     this.description,
-    this.color,
+    required this.color,
     required this.steps
   });
 }

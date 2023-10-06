@@ -8,58 +8,76 @@ import '../../components/LineSeparator.dart';
 
 class Calendar extends StatefulWidget {
   const Calendar({super.key});
-
   @override
   State<Calendar> createState() => _CalendarState();
 }
 
 class _CalendarState extends State<Calendar> {
-  var today = DateTime.now().subtract(Duration(hours: 3));
+
   List<List<Task>> tasks = [
     [
       Task(
-          id: '1',
-          name: 'Escovar os dentes',
-          description: '',
-          date: DateTime(2023, 08, 16),
-          steps: []),
+        id: '1',
+        name: 'Escovar os dentes',
+        description: '',
+        date: DateTime.now().subtract(Duration(days: 1)),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
       Task(
-          id: '2',
-          name: 'Estudar',
-          description: '',
-          date: DateTime(2023, 08, 16),
-          steps: []),
+        id: '2',
+        name: 'Estudar',
+        description: '',
+        date: DateTime.now().subtract(Duration(days: 1)),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
     ],
     [
       Task(
-          id: '3',
-          name: 'Escovar os dentes',
-          description: '',
-          date: DateTime(2023, 08, 17),steps: []),
+        id: '3',
+        name: 'Escovar os dentes',
+        description: '',
+        date: DateTime.now(),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
     ],
     [
       Task(
-          id: '4',
-          name: 'Escovar os dentesaaa',
-          description: '',
-          date: DateTime(2023, 08, 18),steps: []),
+        id: '4',
+        name: 'Escovar os dentesaaa',
+        description: '',
+        date: DateTime.now().add(Duration(days: 1)),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
     ],
     [
       Task(
-          id: '4',
-          name: 'Escovar os dentes',
-          description: '',
-          date: DateTime(2023, 08, 19),steps: []),
+        id: '4',
+        name: 'Escovar os dentes',
+        description: '',
+        date: DateTime.now().add(Duration(days: 2)),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
       Task(
-          id: '4',
-          name: 'Escovar os dentes',
-          description: '',
-          date: DateTime(2023, 08, 19),steps: []),
+        id: '4',
+        name: 'Escovar os dentes',
+        description: '',
+        date: DateTime.now().add(Duration(days: 2)),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
       Task(
-          id: '4',
-          name: 'Escovar os dentes',
-          description: '',
-          date: DateTime(2023, 08, 19),steps: []),
+        id: '4',
+        name: 'Escovar os dentes',
+        description: '',
+        date: DateTime.now().add(Duration(days: 2)),
+        steps: [],
+        color: ThemeColors.optionColor1,
+      ),
     ]
   ];
 

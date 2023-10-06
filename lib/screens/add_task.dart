@@ -30,11 +30,11 @@ class _AddTaskState extends State<AddTask> {
     "sab": false
   };
   var colors = [
-    ThemeColors.optionColorGreen,
-    ThemeColors.optionColorPurple,
-    ThemeColors.optionColorLilac,
-    ThemeColors.optionColorOrange,
-    ThemeColors.optionColorPink
+    ThemeColors.optionColor1,
+    ThemeColors.optionColor2,
+    ThemeColors.optionColor3,
+    ThemeColors.optionColor4,
+    ThemeColors.optionColor5
   ];
 
   void _handleCheckboxChange(String day) {

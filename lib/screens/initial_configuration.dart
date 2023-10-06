@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:poc/activities/tasks_database.dart';
 import 'package:poc/components/button.dart';
 import 'package:poc/components/color_picker.dart';
 import 'package:poc/components/date_picker.dart';
@@ -16,19 +17,29 @@ class InitialConfiguration extends StatefulWidget {
 }
 
 class _InitialConfigurationState extends State<InitialConfiguration> {
+
   var tasks = [
-    Task(name: 'Escovar os dentes', date: DateTime.now(), id: '1', steps: []),
-    Task(name: 'Tomar banho', date: DateTime.now(), id: '2', steps: []),
+    TasksDatabase.EscovarDentes,
+    TasksDatabase.Estudar,
+    TasksDatabase.LavarRoupa,
+    TasksDatabase.IrParaAula,
+  ];
+
+  var images = [
+    'assets/images/brushteeth.png',
+    'assets/images/study.png',
+    'assets/images/laundry.png',
+    'assets/images/class.png'
   ];
 
   var currentIndex = 0;
 
   var colors = [
-    ThemeColors.optionColorGreen,
-    ThemeColors.optionColorPurple,
-    ThemeColors.optionColorLilac,
-    ThemeColors.optionColorOrange,
-    ThemeColors.optionColorPink
+    ThemeColors.optionColor1,
+    ThemeColors.optionColor2,
+    ThemeColors.optionColor3,
+    ThemeColors.optionColor4,
+    ThemeColors.optionColor5
   ];
 
   @override
@@ -49,11 +60,11 @@ class _InitialConfigurationState extends State<InitialConfiguration> {
             Container(
               width: 216,
               height: 46,
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(10),
                       bottomRight: Radius.circular(10)),
-                  color: ThemeColors.primary3),
+                  color: tasks[currentIndex].color),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -85,13 +96,13 @@ class _InitialConfigurationState extends State<InitialConfiguration> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Label(text: 'Cor da tarefa'),
-                  SizedBox(height: 50, child: ColorPicker(colors: colors)),
+                  SizedBox(height: 50, child: ColorPicker(colors: colors, defaultSelected: tasks[currentIndex].color,)),
                 ],
               ),
             ),
             Center(
-              child: Image.network(
-                'https://www.colgate.com/content/dam/cp-sites/oral-care/oral-care-center/en-in/occ/basics/brushing-and-flossing/how-long-should-you-brush-your-teeth-for.jpg.rendition.688.387.jpg',
+              child: Image.asset(
+                images[currentIndex],
                 width: 323,
                 height: 267,
               ),
@@ -137,10 +148,11 @@ class _InitialConfigurationState extends State<InitialConfiguration> {
                     onTap: () {
                       if (currentIndex == tasks.length - 1) {
                         Navigator.pushReplacementNamed(context, '/home');
+                      } else {
+                        setState(() {
+                          currentIndex++;
+                        });
                       }
-                      setState(() {
-                        currentIndex++;
-                      });
                     })
               ],
             )

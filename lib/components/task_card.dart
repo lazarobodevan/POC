@@ -4,12 +4,9 @@ import 'package:poc/theme/theme.dart';
 import '../models/Task.dart';
 
 class TaskCard extends StatelessWidget {
-
   final Task task;
 
-  const TaskCard(
-      {super.key,
-      required this.task});
+  const TaskCard({super.key, required this.task});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +20,9 @@ class TaskCard extends StatelessWidget {
           color: task.color,
         ),
         child: InkWell(
-          onTap: () {Navigator.pushNamed(context, '/step', arguments: task);},
+          onTap: () {
+            Navigator.pushNamed(context, '/step', arguments: task);
+          },
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -36,8 +35,8 @@ class TaskCard extends StatelessWidget {
                       style: const TextStyle(color: Colors.white, fontSize: 18),
                     ),
                     Ink(
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20)),
                       child: InkWell(
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {},
@@ -68,14 +67,21 @@ class TaskCard extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 5, left: 40),
-                          child: task.description != null ? Text(task.description!,style: TextStyle(color: ThemeColors.secondary1),) : Text(''),
+                          child: task.description != null
+                              ? SizedBox(
+                                  width: 220,
+                                  child: Text(
+                                    task.description!,
+                                    style: const TextStyle(
+                                        color: ThemeColors.secondaryWhite,
+                                        overflow: TextOverflow.ellipsis),
+                                  ))
+                              : const Text(''),
                         )
                       ],
-                    )
-                    ,
+                    ),
                   ],
                 ),
-
               ],
             ),
           ),
