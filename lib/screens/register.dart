@@ -3,6 +3,7 @@ import 'package:poc/components/button.dart';
 import 'package:poc/components/text_input.dart';
 import 'package:poc/components/title.dart';
 import 'package:poc/theme/theme.dart';
+import 'package:poc/utils/notifier.dart';
 
 class Register extends StatelessWidget {
   const Register({super.key});
@@ -72,7 +73,11 @@ class Register extends StatelessWidget {
                     child: Button(
                         text: 'Concluir',
                         onTap: () {
-                          Navigator.pushReplacementNamed(context, '/config');
+                          Notifier.showAlertDialog(context, "Atenção", "Suas informações serão enviadas para o Núcleo de Apoio e Inclusão (NAI). Ao prosseguir, você concorda com o compartilhamento de dados.", () {
+                            Notifier.showToast(context, "Conta criada com sucesso!", ThemeColors.semanticGreen, () { }, null);
+                            Navigator.pushReplacementNamed(context, '/config');
+                          });
+
                         }),
                   )
                 ],
