@@ -28,11 +28,11 @@ class MyProgressIndicator extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: ThemeColors.primary4,
                       borderRadius: BorderRadius.circular(5)),
-                  child: const Padding(
-                    padding: EdgeInsets.only(right: 10),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: [Text("{valor}%")],
+                      children: [Text("${(value)}%")],
                     ),
                   ),
                 );
@@ -43,7 +43,7 @@ class MyProgressIndicator extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text('{total}', style: TextStyle(color: ThemeColors.primary1),),
+            Text('$total', style: TextStyle(color: ThemeColors.primary1),),
             Icon(Icons.star, color: ThemeColors.primary2,size: 20,)
           ],
         )

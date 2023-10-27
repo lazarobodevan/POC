@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const TitleH3(text: 'Olá, João!'),
+                  const TitleH3(text: 'Olá, Maria!'),
                   const Text(
                     'Essas são as tarefas de',
                     style: TextStyle(fontSize: 18),

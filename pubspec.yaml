@@ -33,6 +33,7 @@ dependencies:
   dotted_line: ^3.2.2
   intl: ^0.18.1
   flutter_svg: ^2.0.7
+  lottie: ^2.7.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -78,6 +79,7 @@ flutter:
      - assets/atividades/Estudar/
      - assets/atividades/LavarRoupa/
      - assets/atividades/Aula/
+     - assets/lotties/
 
 
 

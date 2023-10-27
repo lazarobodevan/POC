@@ -7,7 +7,7 @@ class Task {
   final DateTime date;
   final String name;
   final String? description;
-  final Color color;
+  Color color;
   final List<TaskStep> steps;
 
   Task({

@@ -3,10 +3,11 @@ import 'package:poc/theme/theme.dart';
 
 class ColorPicker extends StatefulWidget {
   final List<Color> colors;
-  final Color? defaultSelected;
+  final Function(Color) onColorChanged;
+  Color selectedColor;
 
-  const ColorPicker(
-      {super.key, required this.colors, this.defaultSelected});
+  ColorPicker(
+      {super.key, required this.colors, required this.onColorChanged, required this.selectedColor});
 
   @override
   State<ColorPicker> createState() => _ColorPickerState();
@@ -15,8 +16,23 @@ class ColorPicker extends StatefulWidget {
 class _ColorPickerState extends State<ColorPicker> {
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    widget.onColorChanged;
+  }
+
+  void setSelectedColor(Color color) {
+    setState(() {
+      widget.selectedColor = color;
+      widget.onColorChanged(color); // Chame a função de callback
+    });
+
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var selectedColor = widget.defaultSelected != null ? widget.colors.indexOf(widget.defaultSelected!) : 0;
+    //var selectedColor = widget.defaultSelected != null ? widget.colors.indexOf(widget.defaultSelected!) : 0;
     return ListView(
       scrollDirection: Axis.horizontal,
       children: widget.colors.asMap().entries.map((color) {
@@ -26,7 +42,8 @@ class _ColorPickerState extends State<ColorPicker> {
             borderRadius: BorderRadius.circular(50),
             onTap: () {
               setState(() {
-                selectedColor = color.key;
+                widget.selectedColor = color.value;
+                setSelectedColor(color.value);
               });
             },
             child: Container(
@@ -34,10 +51,10 @@ class _ColorPickerState extends State<ColorPicker> {
               height: 50,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: selectedColor == color.key
+                  color: widget.selectedColor == color.value
                       ? color.value
                       : color.value.withOpacity(0.5),
-                  border: selectedColor == color.key
+                  border: widget.selectedColor == color.value
                       ? Border.all(color: ThemeColors.primary2, width: 3)
                       : null),
             ),

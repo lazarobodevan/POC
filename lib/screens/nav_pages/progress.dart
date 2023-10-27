@@ -30,7 +30,7 @@ class Progress extends StatelessWidget {
                 ),
                 RichText(
                   text: const TextSpan(
-                    text: '{35} ',
+                    text: '2 ',
                     style: TextStyle(
                       color: ThemeColors.semanticGreen,
                       fontWeight: FontWeight.w700,
@@ -51,11 +51,11 @@ class Progress extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Text(
-              '{Nome da fase}',
+            const Text(
+              'Iniciante das tarefas',
               style: TextStyle(fontSize: 18),
             ),
-            MyProgressIndicator(value: 65,total: 100,),
+            const MyProgressIndicator(value: 50,total: 4,),
             const SizedBox(height: 60,),
             Center(
               child: Image.asset('assets/images/podium.png'),

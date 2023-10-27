@@ -5,6 +5,7 @@ import 'package:poc/screens/initial_configuration.dart';
 import 'package:poc/screens/login.dart';
 import 'package:poc/screens/nav_pages/navigation_page.dart';
 import 'package:poc/screens/register.dart';
+import 'package:poc/screens/task_concluded.dart';
 
 import 'models/Task.dart';
 
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         '/register': (context) => const Register(),
         '/home': (context) => const NavigationPage(),
         '/addTask':(context) => const AddTask(),
-        '/config':(context) => const InitialConfiguration()
+        '/config':(context) => const InitialConfiguration(),
+        '/finishTask': (context) => const TaskConcluded()
       },
       onGenerateRoute: (settings){
         if(settings.name == "/step"){

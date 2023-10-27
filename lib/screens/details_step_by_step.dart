@@ -3,6 +3,7 @@ import 'package:poc/components/LineSeparator.dart';
 import 'package:poc/components/button.dart';
 import 'package:poc/components/title.dart';
 import 'package:poc/theme/theme.dart';
+import 'package:poc/utils/notifier.dart';
 
 import '../models/Task.dart';
 
@@ -176,10 +177,13 @@ class DetailsStepByStep extends StatelessWidget {
                   child: Button(
                       text: "Concluir",
                       onTap: () {
-                        Navigator.pop(context);
+                        Notifier.showAlertDialog(context, "Atenção!", "Deseja marcar essa atividade como concluída?", () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).pushReplacementNamed('/finishTask');
+                        });
                       }),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 )
               ]),

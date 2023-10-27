@@ -17,6 +17,18 @@ class InitialConfiguration extends StatefulWidget {
 }
 
 class _InitialConfigurationState extends State<InitialConfiguration> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    updateTaskColor(tasks[0].color);
+  }
+
+  void updateTaskColor(Color newColor) {
+    setState(() {
+      tasks[currentIndex].color = newColor;
+    });
+  }
 
   var tasks = [
     TasksDatabase.EscovarDentes,
@@ -96,7 +108,13 @@ class _InitialConfigurationState extends State<InitialConfiguration> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Label(text: 'Cor da tarefa'),
-                  SizedBox(height: 50, child: ColorPicker(colors: colors, defaultSelected: tasks[currentIndex].color,)),
+                  SizedBox(
+                      height: 50,
+                      child: ColorPicker(
+                        colors: colors,
+                        onColorChanged: updateTaskColor,
+                        selectedColor: tasks[currentIndex].color,
+                      )),
                 ],
               ),
             ),
@@ -136,6 +154,7 @@ class _InitialConfigurationState extends State<InitialConfiguration> {
                       if (currentIndex == 0) return;
                       setState(() {
                         currentIndex--;
+                        updateTaskColor(tasks[currentIndex].color);
                       });
                     }),
                 const SizedBox(
@@ -151,11 +170,15 @@ class _InitialConfigurationState extends State<InitialConfiguration> {
                       } else {
                         setState(() {
                           currentIndex++;
+                          updateTaskColor(tasks[currentIndex].color);
                         });
                       }
                     })
               ],
-            )
+            ),
+            const SizedBox(
+              height: 60,
+            ),
           ],
         ),
       ),

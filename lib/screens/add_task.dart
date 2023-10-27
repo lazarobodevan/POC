@@ -9,6 +9,7 @@ import 'package:poc/components/text_input.dart';
 import 'package:poc/components/time_picker.dart';
 import 'package:poc/components/title.dart';
 import 'package:poc/theme/theme.dart';
+import 'package:poc/utils/notifier.dart';
 
 class AddTask extends StatefulWidget {
   const AddTask({super.key});
@@ -41,10 +42,24 @@ class _AddTaskState extends State<AddTask> {
     repeatDays[day] = !repeatDays[day]!;
   }
 
+  var selectedColor;
+
+  void onChangeColor(Color color) {
+    setState(() {
+      selectedColor = color;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    onChangeColor(colors[1]);
+  }
+
   @override
   Widget build(BuildContext context) {
     const items = ['Estudar para prova', 'Aula', 'Cortar as unhas'];
-
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
@@ -185,11 +200,42 @@ class _AddTaskState extends State<AddTask> {
             const SizedBox(
               height: 5,
             ),
-            SizedBox(height: 50, child: ColorPicker(colors: colors)),
+            SizedBox(
+                height: 50,
+                child: ColorPicker(
+                  colors: colors,
+                  selectedColor: selectedColor,
+                  onColorChanged: onChangeColor,
+                )),
             const SizedBox(
               height: 40,
             ),
-            Center(child: Button(text: 'Concluir', onTap: () {})),
+            Center(
+              child: Button(
+                text: 'Concluir',
+                onTap: () {
+                  Notifier.showAlertDialog(context, "Atenção!",
+                      "Tem certeza que deseja adicionar essa tarefa?", () {
+                    Navigator.of(context).pop();
+                    Notifier.showToast(
+                      context,
+                      "Tarefa criada com sucesso!",
+                      ThemeColors.semanticGreen,
+                      () {
+                        Notifier.showToast(
+                            context,
+                            "Você desfez a ação anterior",
+                            ThemeColors.semanticGreen,
+                            () {},
+                            null);
+                      },
+                      null,
+                    );
+                    Navigator.of(context).pop();
+                  });
+                },
+              ),
+            ),
             const SizedBox(
               height: 40,
             )
